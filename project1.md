@@ -169,6 +169,7 @@ other options include :
 
 ### 17 head command 
 This command views the first 10 lines of a text, adding an option allows for changing the number of lines displayed.
+
 general syntax is : head [option] [file]
 example of its application is illustrated below
 ![head command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/6a3f726e-88c1-46b0-943b-a67556d067d5)
@@ -179,12 +180,14 @@ options include :
 
 ### 18 tail command 
 This command displays the last 10 lines of a file.
+
 general syntax is :tail [option] [file]
 example attached below
 ![tail command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/310569b3-09e3-4342-8359-b4718478f566)
 
 ### 19 diff command (difference)
 The diff command compares the contents of two files line by line,It displays the parts that do not match. 
+
 The general syntax is: diff [option] file1 file2
 illustration of its usage :
 ![diff command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/12adbb58-4091-48e7-bd8a-788c03344aec)
@@ -195,6 +198,7 @@ options include
 
 ### 20 tar command
 tar command archives files into a tar file with optional compression. 
+
 the general syntax is: tar [options] [archive_file] [file or directory to be archived]
 ![tar command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/f69e7787-d95c-4dfe-8bf8-c548f22d4a3a)
 
@@ -207,6 +211,7 @@ options include
 
 ### 21 chmod command 
 This command modifies a file or directory's read, write and execute permissions.
+
 the syntax is : chmod [option] [permission] [file_name]
 for example to allow read,write, and execute permissions for group members and others on a file :(numeric value is 777)
 ![chmod command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/680e847e-3392-483f-8110-ffcb5524f489)
@@ -222,6 +227,7 @@ basic syntax is: chown [option] owner[:group] file(s)
 
 ### 23 jobs command 
 jobs are processes started from the shell, this command shows all running processes and their statuses. 
+
 syntax :jobs [options] jobID
 to check status of jobs simply type jobs. 
 note -- i dont have any current jobs running so the command returns empty 
@@ -243,18 +249,24 @@ sigkill --- forces programs to stop
 
 ### 25 ping command 
 Ping command is used to check if a network or server is reachable, and troubleshoot connectivity issues 
+
 General format is: ping [option] [hostname_or_IP_address]
 below is a connection check for google.com
 ![ping command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/9db017a7-4f84-4576-bd49-08eb76b7fe09)
 
 ### 26 wget command 
-This command is used to download files from the internet, its general syntax is 
-wget [option] [url]
+This command is used to download files from the internet, 
+
+its general syntax is : wget [option] [url]
+
 an example to dowload wordpress is below : wget https://wordpress.org/latest.zip
 ![wget command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/0231f5c5-fe72-479a-8f71-6f08579f5429)
 
 ### 27 uname command 
-Prints information about tyour linux system and hardware like machine name, operating system and kernel. Its basic syntax is: uname [option]
+Prints information about tyour linux system and hardware like machine name, operating system and kernel. 
+
+Its basic syntax is: uname [option]
+
 options include -a(system info), -s(kernel name) and -n(system's node hostname).
 ![uname command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/2a9a3085-259f-4ae4-a601-046bcd6625f9)
  
@@ -264,15 +276,22 @@ Displays all running processes and a dynamic real time view of the current syste
 
 ### 29 history command 
 This command displays up to 500 previously executed commands allowing reuse, requires sudo priviledges to achieve this. 
+
 syntax : history [option]
+
 options include 
+
 -c --- clears history
+
 -d --- deletes entry at offset position 
+
 -a --- appends history lines
 ![history command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/c5bdc853-1479-414c-b34a-9a61d62d876a)
 
 ### 30 man command 
-Provies a user manual of commands or utilities u can run on the terminal, General syntax is : man [command_name]
+Provies a user manual of commands or utilities u can run on the terminal,
+
+General syntax is : man [command_name]
 to specify displayed section : man [option] [section_number] [command_name]
 ![man command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/099fac69-c2cd-4601-9537-13b890807ca3)
 
@@ -282,22 +301,32 @@ basic syntax: echo [option] [string]
 ![echo command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/70861d43-2fbc-4783-87a6-0c4f26eb364f)
 
 ### 32 zip, unzip command 
-Zip is used to compress files into a zip file, also useful for archiving files and directories. general syntax: zip [options] zipfile file1 file2….
+Zip is used to compress files into a zip file, also useful for archiving files and directories. 
+
+general syntax: zip [options] zipfile file1 file2….
 
 unzip extracts files from a zip file, general syntax :unzip [option] file_name.zip
 as shown in the illustration 
 ![zip command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/01f77677-ff11-4661-a228-586d95a1d8f5)
 
 ### 33 hostname command
-This is used to show the system's hostname, General syntax is : hostname [option]
+This is used to show the system's hostname,
+
+General syntax is : hostname [option]
+
 can also be used with various flags
 ![hostname command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/d8367044-02b9-4957-930b-6e9038769dea)
+
 -i --- displays ip address 
+
 -a --- displays hostname alias
+
 -A --- displays FQDN
 
 ### 34 useradd, userdel commands
-useradd is used to create a new user account, that can be passworded, it can only be executed by users with sudo priviledges.general syntax for useradd and password to be inputed simultaneously
+useradd is used to create a new user account, that can be passworded, it can only be executed by users with sudo priviledges.
+
+general syntax for useradd and password to be inputed simultaneously
 
 useradd --- useradd [option] username
 password --- passwd the_password_combination
@@ -308,7 +337,9 @@ syntax is:userdel username
 
 ### 35 apt-get command 
 Tool for handling advanced package tool (apt) libraries in linux. allows retrieving of information and bundles from authenticated sources to manage, update, remove and install software and its dependencies.
+
 main syntax is : apt-get [options] (command)
+
 ![apt-get command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/8e758fb3-949b-46db-b108-33ae297d2370)
 
 ### 36 nano, vi, jed commands
@@ -334,6 +365,7 @@ unalias syntax : unalias [alias_name]
 ### 38 su command (switch user)
 
 su command allows user to run a command s a different user, changes the administrative account in the current log-in session.
+
 General syntax : su [options] [username [argument]]
 ![su command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/3c91f4c4-685f-4d3d-8e28-4be5966b12b0)
 
