@@ -1,11 +1,12 @@
-# LINUX PRACTICE PROJECT BY TEMITAYO OBISAKIN 
+# LINUX PRACTICE PROJECT 
 
-This is an introduction to linux which is  an open source unix operating systems based on the linux kernel, focusing on the linux commands used in navigation on the CLI (a console that interacts with the system via texts and processes).
+This is an introduction to linux which is  an open source unix operating system based on the linux kernel, focusing on the linux commands used in navigation on the CLI (a console that interacts with the system via texts and processes).
 
 Linux commands are programs executed on a terminal similar to the windows command prompt application, they are executed by pressing enter at the end of the line and are used to perform various tasks like user management and file manipulation.
 
 the linux general syntax is ---- CommandName [option(s)] [parameter(s)]
 the three common parts are the command name (Rule to be performed), option (changes the command's operation and invoked by a hyphen) and parameter (Specifies information for the command).
+Note--Linux commands are case sensitive.
 
 ## file manipulation
 ### 1 sudo command (super user do)
@@ -21,7 +22,7 @@ sudo apt upgrade
 Options can also be added such as : -k , -g and -h to help modify the command's operation. 
 
 ### 2 pwd command
-this command is used to find the path of your present working directory.
+This command is used to find the path of your present working directory.
 it uses the following syntax --- pwd [option]
 
 Example of its application is attached below by simply typing pwd
@@ -31,9 +32,9 @@ Example of its application is attached below by simply typing pwd
 options available are -l and -P
 
 ### 3 cd command
-the cd commnd is used to navigate through linux files and directories, using the cd command without and option directs you to the home folder and can mainly be used by users that have sudo privileges.
+The cd command is used to navigate through linux files and directories, using the cd command without an option directs you to the home folder and can mainly be used by users that have sudo privileges.
 
-the gernerally used by typing cd followed by the directories path as shown bellow.
+the command is gernerally used by typing cd followed by the directories path as shown below.
 
 ![cd command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/779e7cd3-9436-4e9a-b3d2-804631f102c7)
 
@@ -43,7 +44,7 @@ cd .. --- moves up one directory
 cd-  --- returns you to your previous directory
 
 ### 4 ls command 
-to list files and directories within a system the ls command is used.can be used to show the contents of a current directory being worked on and also other directires by stating the path of the directory in question.for examole using the 
+To list files and directories within a system the ls command is used, can be used to show the contents of a current directory being worked on and also other directires by stating the path of the directory in question.for example using the 
 ls /home/ubuntu command showing the path.
 
 ![ls command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/6b84df28-956b-4a42-bfb3-9bd36aea79f9)
@@ -51,7 +52,7 @@ ls /home/ubuntu command showing the path.
 other options include -R(includes sub directories), -a(shows hidden files), -lh(shows file sizes)
 
 ### 5 cat command (concatenate)
-this command combines and writes file content to the standard output. general syntax for the cat command is --- cat [file name]
+This command combines and writes file content to the standard output. general syntax for the cat command is --- cat [file name]
 
 ![cat command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/aad18cf5-2656-423e-bb94-1c700f8d5b89)
 
@@ -82,10 +83,10 @@ Used primarily to move and rename files and directories. by typing mv followed b
 as shown above the mv command can also be used to rename file with the general syntax being --- mv [filename] [new filename]
 
 ### 8 mkdir command
-This command is used to create one or multiple directories aqt once and to set permissions for each of them.
+This command is used to create one or multiple directories at once and to set permissions for each of them.
 The general syntax is :
 mkdir [option] directory_name
-pictured below is the application of the command to create a directory names music using :
+pictured below is the application of the command to create a directory named music using :
 mkdir Music
 and secondly to create a directory called songs within the music folder using:
 mkdir Music/Songs
@@ -125,7 +126,7 @@ General syntax is : touch filename.extention
 ![touch command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/58ff5bbd-0cbe-4ff1-af8e-84bbb9057c8d)
 
 ### 12 locate command 
-the locate command is used to find files within the database system.using the -i option turns off case sensitivity so u can search for a file without knowing its exact name.
+The locate command is used to find files within the database system, using the -i option turns off case sensitivity so u can search for a file without knowing its exact name.
 ![locate command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/68a12361-1cc2-4bef-893f-82c86ab1c46e)
 
 ### 13 find command 
@@ -138,14 +139,14 @@ other variations include :
 -name filename.txt --- to find files in current directory
 
 ### 14 grep command (global regular expression print)
-this command lets you find a word by searching through all texts in a specific file, and prints all lines that contain the specific pattern. It helps to filter through large log files.
+This command lets you find a word by searching through all texts in a specific file, and prints all lines that contain the specific pattern. It helps to filter through large log files.
 for example to search for the word this in testfile3 :grep this testfile3
 ![grep command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/f2e51990-f8ee-403f-a29b-4aec3945eaf7)
 output would display lines that contin the word this. 
 
 ### 15 df command 
 
-to report the system's disk space usage in percentage or kilobytes. 
+The df command is used to report the system's disk space usage in percentage or kilobytes. 
 general syntax : df [options] [file]
 
 to see current directory's system disk space usage in a human readable format:
@@ -166,7 +167,7 @@ other options include :
 -h --- informs on the last modification date 
 
 ### 17 head command 
-this command views the first 10 lines of a text, adding an option allows for changing the number of lines displayed.general syntax is : 
+This command views the first 10 lines of a text, adding an option allows for changing the number of lines displayed.general syntax is : 
 head [option] [file]
 example of its application is illustrated below
 ![head command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/6a3f726e-88c1-46b0-943b-a67556d067d5)
@@ -176,7 +177,7 @@ options include :
 -q / -quiet --- will not print headers specifying the file name 
 
 ### 18 tail command 
-this command displays the last 10 lines of a file. general syntax is :
+This command displays the last 10 lines of a file. general syntax is :
 tail [option] [file]
 example attached below
 ![tail command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/310569b3-09e3-4342-8359-b4718478f566)
@@ -214,7 +215,7 @@ other options include
 -f --- suppresses errors
 
 ### 22 chown command
-This command allows changes to thye ownership of a file, directory or symbolic link to a specified username.
+This command allows changes to the ownership of a file, directory or symbolic link to a specified username.
 basic syntax is: chown [option] owner[:group] file(s)
 ![chown command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/d692cdef-c498-43a1-b5be-07dde21fdda0)
 
@@ -252,7 +253,7 @@ an example to dowload wordpress is below : wget https://wordpress.org/latest.zip
 ![wget command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/0231f5c5-fe72-479a-8f71-6f08579f5429)
 
 ### 27 uname command 
-prints information about tyour linux system and hardware like machine name, operating system and kernel. Its basic syntax is: uname [option]
+Prints information about tyour linux system and hardware like machine name, operating system and kernel. Its basic syntax is: uname [option]
 options include -a(system info), -s(kernel name) and -n(system's node hostname).
 ![uname command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/2a9a3085-259f-4ae4-a601-046bcd6625f9)
  
@@ -295,28 +296,56 @@ can also be used with various flags
 -A --- displays FQDN
 
 ### 34 useradd, userdel commands
+useradd is used to create a new user account, that can be passworded, it can only be executed by users with sudo priviledges.general syntax for useradd and password to be inputed simultaneously
+
+useradd --- useradd [option] username
+password --- passwd the_password_combination
+
+userdel deletes a user account 
+syntax is:userdel username
+![useradd command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/42ef9b9d-f696-459b-9526-fd8d2fc4de07)
+
+### 35 apt-get command 
+Tool for handling advanced package tool (apt) libraries in linux. allows retrieving of information and bundles from authenticated sources to manage, update, remove and install software and its dependencies.
+main syntax is : apt-get [options] (command)
+![apt-get command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/8e758fb3-949b-46db-b108-33ae297d2370)
+
+### 36 nano, vi, jed commands
+nano, vi and jed are text editors that allows users to edit and manage files.
+
+nano denotes keywords that can work with most languages :nano [filename]
+![nano command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/7a0fde23-4fa7-40df-a6cf-4422059be7e1)
+
+vi uses two operating modes which are insert and command.insert is used to edit and create text files, while command perfomes various operations such as saving, opening and copying a file: vi [filename]
+![vi command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/68633964-4c4e-4e96-bffd-9a097b799097)
+
+jed uses a dropdown menu for navigation to carryout operations without keyboard combinations or commands. simply opened using : jed 
+![jed command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/af0a6ae2-d5ff-4bec-9779-80bb100323da)
+
+### 37 alias, unalias commands 
+alias command allows users to create shortcuts for commands, filename or text.
+alias syntax : alias Name=String
+
+unalias command deletes an existing alias 
+unalias syntax : unalias [alias_name]
+![alias command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/d9f12dd9-6f8a-416a-9add-0aef07ad98b0)
+
+### 38 su command (switch user)
+
+su command allows user to run a command s a different user, changes the administrative account in the current log-in session.
+General syntax : su [options] [username [argument]]
+![su command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/3c91f4c4-685f-4d3d-8e28-4be5966b12b0)
+
+### 39 htop command 
+This is an interactive program that monitors system resources and server processes in real time. similar to the top command but consist of many improvements and additional features such a mouse operation and visual indicators.
+htop syntax : htop [options]
+![htop command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/2aa56008-aa2d-4ad8-bd29-e1e421f1efad)
+
+### 40 ps command (process status) 
+Takes a snapshot of all running proceses in your system. Displays information like, the process id (PID), terminal type (TTY), running time (TIME).
+![ps command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/2e155f6a-5ebb-4f1a-a961-de550b8ef85d)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Thank you.
 
