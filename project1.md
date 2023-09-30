@@ -61,6 +61,7 @@ other ways to use this command includes:
 cat filename1.txt filename2.txt > filename3.txt ---- (merges result of filename1 and filename2 and stores the output in filename3)
 
 tac filename.txt ---- (Displays result in reverse order).
+![tac command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/f2c5600b-963f-4602-82bf-bdd28ea41cba)
 
 ### 6 cp command
 The cp command is used to copy files or directories and their content,an example of copying a file from one directory to another by typing cp followed by the file name and destination directory. see below
@@ -167,8 +168,8 @@ other options include :
 -h --- informs on the last modification date 
 
 ### 17 head command 
-This command views the first 10 lines of a text, adding an option allows for changing the number of lines displayed.general syntax is : 
-head [option] [file]
+This command views the first 10 lines of a text, adding an option allows for changing the number of lines displayed.
+general syntax is : head [option] [file]
 example of its application is illustrated below
 ![head command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/6a3f726e-88c1-46b0-943b-a67556d067d5)
 options include :
@@ -177,8 +178,8 @@ options include :
 -q / -quiet --- will not print headers specifying the file name 
 
 ### 18 tail command 
-This command displays the last 10 lines of a file. general syntax is :
-tail [option] [file]
+This command displays the last 10 lines of a file.
+general syntax is :tail [option] [file]
 example attached below
 ![tail command](https://github.com/temitayo-ob/darey.io-projects/assets/145216353/310569b3-09e3-4342-8359-b4718478f566)
 
