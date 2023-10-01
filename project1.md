@@ -1,4 +1,4 @@
-# LINUX PRACTICE PROJECT 
+# LINUX PRACTICE PROJECT BY TEMITAYO OBISAKIN 
 
 This is an introduction to linux which is  an open source unix operating system based on the linux kernel, focusing on the linux commands used in navigation on the CLI (a console that interacts with the system via texts and processes).
 
