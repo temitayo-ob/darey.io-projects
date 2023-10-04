@@ -1,14 +1,14 @@
-# GIT PROJECT BY TEMITAYO OBISAKIN
+# GIT PROJECT 
 
 ## INITIALIZING A REPOSITORY AND MAKING COMMITS
 
 Lets start by introducing GIT
 
-## what is Git 
+## What is Git 
 
 Git is a distributed version control sytem, it solves the problem of sharuing code efficiently and keeping track of changes made to source code.
 
-### initializing a Git repository
+### Initializing a Git repository
 
 To initialize a git repository follow these steps:
 
@@ -21,12 +21,12 @@ To initialize a git repository follow these steps:
 
 ### Making your first commit 
 
-in the last section we created a directoty and initialized a git repository, now we will make our first commit.
+In the last section we created a directoty and initialized a git repository, now we will make our first commit.
 
 A commit is basically saving changes made to a repository either its by adding, modifying, or deleting text or files, it takes a snapshot of the current state of your repository and saves a copy in the .git folder inside your working directory.
 
 follow these steps to make a commit
-- inside your working directory create a file index.txt using command `touch index.txt`
+- Inside your working directory create a file index.txt using command `touch index.txt`
 - Write any sentence of your choice inside the text file afterwards and save your changes.
 - Add your chsnges to git staging area using this command `git add .`
 - To commit your changes to git, run the command `git commit -m "initial commit"`
@@ -43,11 +43,11 @@ A git branch helps create a copy of your source code, changes can be made to the
 Its commonly used to develpo a new feature of your application, it is also an important tool for collaboration within remote teams(developers working from different locations). they can make separate branches while working on the same feature, and at the end of the day merge their code into one branch.
 
 ### Make your first git branch 
-to make a new branch run this command `git checkout -b`. The -b flag helps you create and change into a new branch.
+To make a new branch run this command `git checkout -b`. The -b flag helps you create and change into a new branch.
 
 Lets follow the following steps:
 - Having made your first commit in the previous lesson
-- make a new branch by running this command `git checkout -b my-new-branch`
+- Make a new branch by running this command `git checkout -b my-new-branch`
 
 ![new branch](./image/new%20branch.jpg)
 
@@ -69,7 +69,7 @@ Assuming we have two branches A and B, and we want to add the content a branch B
 
 ![git merge](./image/git%20merge.jpg)
 
-### deleting a branch 
+### Deleting a branch 
 
 After the new branch has fulfilled its purpose and has been tested and merged to the staging or development enviroment, ussually the branch is deleted depending on the branch strategy of the team.
 
@@ -81,13 +81,13 @@ to learn more about git branches type the command `git branch --help` on your te
 
 ## COLLABORATION AND REMOTE REPOSITORIES
 
-### collaboration and remote reposirories 
+### Collaboration and remote reposirories 
 
 Git is can also be used for collaboration among remote teams, and this can be achieved with the use of Github. Github is a web based platform where git repositories are hosted. by hosting a local repository on git hub it becomes available in the public internet, It is also possible to create private repositories as well.
 
 remote teams can now collaborate on projects efficiently.
 
-### creating a Github account 
+### Creating a Github account 
 
 step 1: Head over to [github](https://github.com/)
 
@@ -148,4 +148,60 @@ To get the remote link click on the green button code, copy the https link. a sc
 
 
 
+
+##  BRANCH MANAGEMENT AND TAGGING 
+
+### Introduction to markdown syntax
+
+Markdown syntax is a lightweight markup language that is widely used for formatting plain text.it allows you to add formatting elements to text without using complex HTML or other formatting languages, it is commonlu used for creating documents, README files, forum posts and even web pages.
+
+Here are some commonly used markdown syntax elements: 
+
+1. Headings: to create heading use the hash symbol at the beginning of the line. The number of hash symbol used indicates the level of the heading.
+
+# Heading 1
+## Heading 2
+### Heading 3
+
+2. Emphasis: asterics or underscore is used to emphasize text
+
+*italic* or _italic_
+**bold** or __bold__
+
+3. List: Markdown has support for both ordered and un ordered list 
+
+unordered list example:
+
+- Item 1
+- Item 2
+- Item 3
+
+ordered list example:
+
+1. First item
+2. Second item
+3. Third item
+
+4. Links: to create a hyperlink, use square brackets for the link text followed by parentheses containing the URl
+
+example:
+
+[visit darey.io](https://www.darey.io)
+
+5. Images To diasplay an image, use an exclamation mark followed by a square bracket for the alt textand parentheses containing the image URL or path.
+
+example: 
+
+![Alt Text](https://example.com/image.jpg)
+
+6. Code: To display code or code snippets, use backticks(`) to enclose the code.
+
+example:
+
+`console.log('Welcome to darey.io')`
+
+These are the most commonly used markdown syntax elements, to learn more visit the link: [markdown](https://learn.microsoft.com/en-us/contribute/content/markdown-reference)
+
+
+Thank you.
 
