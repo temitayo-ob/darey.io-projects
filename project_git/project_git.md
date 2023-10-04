@@ -148,6 +148,14 @@ To get the remote link click on the green button code, copy the https link. a sc
 
 
 
+### Cloning a remote git repository
+
+Git clone command helps us to make a copy of remote repository in our local machine. see it as a tool for downloading remote repository into our local machine.the command is as follows:
+
+`git clone <link to your remote repository>`
+
+![git clone](./image/git%20clone.jpg)
+
 
 ##  BRANCH MANAGEMENT AND TAGGING 
 
