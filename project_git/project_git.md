@@ -194,7 +194,7 @@ ordered list example:
 
 example:
 
-[visit darey.io](https://www.darey.io)
+`[visit darey.io](https://www.darey.io)`
 
 5. Images To diasplay an image, use an exclamation mark followed by a square bracket for the alt textand parentheses containing the image URL or path.
 
