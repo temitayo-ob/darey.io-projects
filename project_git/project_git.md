@@ -200,7 +200,7 @@ example:
 
 example: 
 
-![Alt Text](https://example.com/image.jpg)
+`![Alt Text](https://example.com/image.jpg)`
 
 6. Code: To display code or code snippets, use backticks(`) to enclose the code.
 
