@@ -146,7 +146,7 @@ To get the remote link click on the green button code, copy the https link. a sc
 
 `git push origin <branch name>`
 
-
+![git push](./image/git%20push.jpg) 
 
 ### Cloning a remote git repository
 
