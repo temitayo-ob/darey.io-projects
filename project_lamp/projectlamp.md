@@ -200,6 +200,64 @@ Also tested using the DNS
 
 ![dns](./image/publicdns.jpg)
 
+## ENABLE PHP ON THE WEBSITE 
+
+### Step 5 - Enable PHP on the website
+
+I edited the default directory settings to make `index.php` file take precedence over the `index.html` file. using:
+
+`sudo vim /etc/apache2/mods-enabled/dir.conf`
+
+And changed the order of the files.
+
+`<IfModule mod_dir.c>`
+
+ `#Change this:`
+
+ `#DirectoryIndex index.html index.cgi index.pl index.php `
+ `index.xhtml index.htm`
+
+ `#To this:`
+
+ `DirectoryIndex index.php index.html index.cgi   index.pl index.xhtml index.htm`
+
+`</IfModule>`
+
+![index](./image/phpi.jpg)
+
+Saved, closed and reloaded apache so it would take effect.
+
+`sudo systemctl reload apache2`
+
+Finally created a php script to test that php is working correctly and configured well on the server.
+
+`vim /var/www/projectlamp/index.php`
+
+And pasted the php code inside the file.
+
+`<?php`
+`phpinfo();`
+
+Save and close.
+
+To test this script i inouted this URL into my browser.
+
+`http://server_domain_or_IP/index.php`
+
+![done](./image/phpdone.jpg)
+
+This page provides information about your server from the perspective of PHP. It is useful for debugging and to ensure that your settings are being applied correctly.
+
+If you see this page in your browser, then your PHP installation is working as expected.
+
+After checking the relevant information about your PHP server through that page, it’s best to remove the file you created as it contains sensitive information about your PHP environment and your Ubuntu server. Use `rm` to do so:
+
+`sudo rm /var/www/projectlamp/index.php`
+
+you can always recreate the page if access is needed later.
+
+Thank you.
+
 
 
 
