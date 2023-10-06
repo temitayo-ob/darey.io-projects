@@ -21,8 +21,11 @@ Apache is a most widely used web server software, it can be highly customized to
 I installed apache using these commands 
 
 `#update a list of packages in package manager`
+
 `$ sudo apt update`
+
 `#run apache2 package installation`
+
 `$ sudo apt install apache2`
 
 ![apacheinstall](./image/apacheinstall.jpg)
@@ -140,13 +143,17 @@ Created a new configuration file in apache's sites-available directory using vi 
 And inputed the following text
 
 `<VirtualHost *:80>`
+
+``
     `ServerName projectlamp`
     `ServerAlias www.projectlamp `
     `ServerAdmin webmaster@localhost`
     `DocumentRoot /var/www/projectlamp`
     `ErrorLog ${APACHE_LOG_DIR}/error.log`
     `CustomLog ${APACHE_LOG_DIR}/access.log combined`
+
 `</VirtualHost>`
+
 
 saved and exited
 
@@ -155,7 +162,9 @@ saved and exited
 And confirmed its location using `ls`
 
 `sudo ls /etc/apache2/sites-available`
+
 `You will see something like this`
+
 `000-default.conf  default-ssl.conf  projectlamp.conf`
 
 With this we are telling apache to serve `projectlamp` **using /var/www/projectlamp** as its web root directory.
