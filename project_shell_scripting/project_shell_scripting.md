@@ -17,14 +17,16 @@ Example: to retrieve a variable
 
 `echo $name`
 
-2. Control flow: bash provides control flow statements like if-else. for loops, while loops, and case statements to control the flow of execution in your scripts. These statements allows one to make decisions, iterate over lists, and execute different commands based on conditions.
+2. Control flow: 
+
+Bash provides control flow statements like if-else. for loops, while loops, and case statements to control the flow of execution in your scripts. These statements allows one to make decisions, iterate over lists, and execute different commands based on conditions.
 
 Example: Using *if-else* to execute scripts based on a contition.
 
 ![if-else](./images/if-else.jpg)
 ![if result](./images/if-else%20result.jpg)
 
-the piece of code promts you to type a number and prints a statement stating the number is positive or negative.
+The piece of code promts you to type a number and prints a statement stating the number is positive or negative.
 
 Example iterating through a list using a *for loop*
 
@@ -32,6 +34,7 @@ Example iterating through a list using a *for loop*
 ![for-result](./images/for%20result.jpg)
 
 3. Command substsitution:
+
 This allows you to capture the output of a command and use it as a value within your script. You can use the backtick or the `$()` syntax for the command substitution.
 
 current_date=`date +%Y-%m-%d`
@@ -40,7 +43,9 @@ Example: Using `$()` syntax for command substitution
 
 `current_date=$(date +%Y-%m-%d)`
 
-4. Imput and output: Bash provides various ways to handle inout and output. read command can be used to accept user input, and echo command for output texts to the console.input and output can also be redirected using operators like >(output to a file), <(inout from a file), and | (pipe the output of one command as input to another).
+4. Imput and output: 
+
+Bash provides various ways to handle inout and output. read command can be used to accept user input, and echo command for output texts to the console.input and output can also be redirected using operators like >(output to a file), <(inout from a file), and | (pipe the output of one command as input to another).
 
 Example: Accept user input
 
@@ -63,7 +68,9 @@ Example: Pass the result of a command as input to another command
 
 `echo "hello world" | grep "pattern"`
 
-5. Functions: It allows you to define and use functions to group related commands together, functions provide a way to modurslize your code and make it more reusable.can be defined using the function keyword or by simply declaring the function name followed by parentheses.
+5. Functions: 
+
+It allows you to define and use functions to group related commands together, functions provide a way to modurslize your code and make it more reusable.can be defined using the function keyword or by simply declaring the function name followed by parentheses.
 
 ![greet](./images/greet.jpg)
 ![greetresult](./images/greet%20result.jpg)
