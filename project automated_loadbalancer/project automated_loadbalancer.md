@@ -1,6 +1,6 @@
 # AUTOMATING LOADBALANCER CONFIGURATION AND SHELL SCRIPTING
 
-This project shows how tyo automate the setup and maintenance of your load balancer using a freestyle job,enhancing efficiency and reducing manual effort.
+This project shows how to automate the setup and maintenance of your load balancer using a freestyle job,enhancing efficiency and reducing manual effort.
 
 ## AUTOMATE THE DEVELOPMENT OF WEBSERVERS
 
