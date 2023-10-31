@@ -1,8 +1,21 @@
 # ANSIBLE-AUTOMATE PROJECT
 
+experience the power of automation with Ansible in this project, simplifying complex tasks and streamlining your IT infrastructure.
+
+## ANSIBLE CONFIGURATION MANAGEMENT- AUTOMATE PROJECT 7 TO 10
+
+A jump server (bastion host) is an intermediary server through which access to internal network can be provided. If you think about the current architect you are working on, ideally, the webservers would be inside a secured network which cannot be reached directly from the internet. That means even DevOps engineers cannot `ssh` into web servers directly and can only acccess through a jump server. It provides better security and reduces attack surface.
+
+On the diagram below the virtual private network (VPC) is divided into two subnets - Public subnet has public addresses and Private subnet is only reached by private ip addresses.
+
+![architecture](./image/architecture.png)
+
 ## ***STEP 1:*** STEP 1INSTALL AND CONFIGURE ANSIBLE ON EC2 INSTANCE
 
 - Create a webserver with the name tag `jenkins-ansible`, we will use this server to run playbooks.
+
+![server](./image/instances.jpg)
+
 -  In your Github account create a new repository and name it `ansible-configure-mgt`.
 
 -  install Ansible 
@@ -71,7 +84,7 @@ Check your ansible version by running `ansible --version`
  ssh-add <path-to-private-key>
 ```
 
-onfirm the key has been added with this command, you should see the name of your key: 
+Confirm the key has been added with this command, you should see the name of your key: 
 
 `ssh-add -l`
 
@@ -174,6 +187,23 @@ Once your code changes appear in master branch – Jenkins will do its job and s
 
 **NOTE- I HAVE TWO SERVERS RUNNING ON DIFFERENT KEY PAIRS SO THE SSH AGENT COULDNT CONNECT TO THE INSTANCE FOR VERIFICATION--- TO CORRECT THIS I CREATED AN SSH KEY PAIR ON THE SERVER USING `SSH-KEYGEN ` AND COPIED THE PUBLIC KEY TO THE `AUTHORIZED_KEYS` AND RAN THE ANSIBLE PLAYBOOK AGAIN.
 
+![keygen](./image/ssh-keygen.jpg)
+
+![public](./image/publickey.jpg)
+
 ![playbook](./image/playbook-successful.jpg)
 
 If your command ran successfully, go to each of the servers and confirm if wireshark has been installed by running `which wireshark` or `wireshark --version`.
+
+Your updated Ansible architecture now looks like this:
+
+![archi](./image/final-architecture.png)
+
+You can update the playbook to run a simple task and go over the full `checkout -> change codes -> commit -> PR -> merge -> build -> ansible-playbook` cycle again to see how easily you can manage servers of any size with just one command.
+
+![code](./image/code-create.png)
+
+![result](./image/create-directory.png)
+
+
+Thank you.
