@@ -124,8 +124,7 @@ ansible-playbook -i inventory/dev.yml playbooks/site.yaml
 
 And make sure `wireshark` has been deleted on the servers by running `wireshark --version`.
 
-
-
+![wireshark](./images/wireshark.png)
 
 Now you have learnt how to use the import_playbooks module in ansible.
 
@@ -278,3 +277,6 @@ Your ansible architecture now looks like this
 ![archi](./images/archi.png)
 
 
+You have now learned how to deploy and configure UAT webservers using ansible `imports` and `role`.
+
+Thank you
