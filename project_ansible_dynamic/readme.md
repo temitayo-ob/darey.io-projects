@@ -1,4 +1,4 @@
-INTRODUCING DYNAMIC ASSIGNMENT INTO OUR STRUCTURE
+# INTRODUCING DYNAMIC ASSIGNMENT INTO OUR STRUCTURE
 
 In your `https://github.com/<your-name>/ansible-config-mgt` GitHub repository start a new branch and call it `dynamic-assignments`.
 
