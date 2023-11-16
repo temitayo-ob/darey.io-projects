@@ -557,4 +557,11 @@ Run `terraform plan` and ensure everything works
 
 ![end2](./images/end2.png)
 
+You can now run `terraform apply` to create your resources
+
+![apply](./images/terraform_apply1.png)
+
+![apply](./images/terraform_apply2.png)
+
+
 Thank you.
