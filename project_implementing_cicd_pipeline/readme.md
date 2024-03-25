@@ -278,6 +278,18 @@ Then do the following to test that the code can create existing resources;
   - Push your latest changes to Github
   - Run terraform init, plan and apply and confirm everything works fine
 
+  - terraform init 
+
+  ![init](./images/terraform%20init.png)
+
+  - terraform plan
+
+  ![plan](./images/terraform%20plan.png)
+
+  - terraform apply
+
+  ![apply](./images/terraform_apply.png)
+
 
 ### Connect the Github repository to Jenkins
 
@@ -342,13 +354,113 @@ Jenkins needs to know how to connect to Github, otherwise in real world cases wh
 
 1. In Jenkins, navigate to "Manage Jenkins" -> Click on "Credentials"
 
+![credentials](./images/credentials.png)
+
 2. Click on the arrow next to "global" and select "Add credentials"
 
+![credentials](./images/credential1.png)
+
 3. Select username and password. Use the Access token generated earlier as your password, and specify the anything descriptive as your ID
+
+![credentials](./images/github-cred.png)
 
 4. In the credentials section, you will be able to see the created credential
 
 5. Create a second credential for AWS secret and access key. If you have installed the AWS credentials plugin, you will see the "AWS Credentials" Kind as shown below. Simply add the AWS secret and access key generated from AWS console.
+
+![aws-cred](./images/aws-cred.png)
+
+### Set Up a Jenkins Multibranch Pipeline:
+
+- From the Jenkins dashboard, click on "New Item"
+
+![new item](./images/new-item.png)
+
+- Give it a name and description
+
+![description](./images/description.png)
+
+- Select the type of source of the code and the Jenkinsfile
+
+![source](./images/source.png)
+
+- Select the credentials to be used to connect to Github from Jenkins
+
+- Add the repository URL. Ensure you have forked it from https://github.com/darey-devops/terraform-aws-pipeline.git/
+
+![git](./images/gitcred.png)
+
+- Leave everything at default and hit save
+
+![save](./images/save.png)
+
+- You will immediately see the scanning of the repository for branches, and the Jenkinsfile
+
+- The terraform-cicd pipeline and main branch scanned
+
+![main](./images/main.png)
+
+- Pipeline run and Console output
+
+- Click on "Build now" for a second run and check the console output
+
+- Show the plan and decide to proceed to apply or abort
+
+![result](./images/result.png).
+
+### Now lets talk about the Jenkinsfile:
+
+The Jenkinsfile pipeline automates the process of code checkout, planning infrastructure changes with Terraform, and conditionally applying those changes. It's designed to ensure that changes to infrastructure (managed by Terraform) are reviewed and applied systematically, with an additional manual check before applying changes to critical environments like production.
+
+Let's break down each section. Open the Jenkins file in a separate tab and follow the next sections carefully.
+
+- Pipeline
+
+***pipeline { ... }***: This is the wrapper for the entire pipeline script. Everything that defines what the pipeline does is included within these braces.
+
+- Agent
+
+***agent any***: This line specifies that the pipeline can run on any available agent. In Jenkins, an agent is a worker that executes the job. 'Any' means it doesn't require a specific agent configuration.
+
+- Environment
+
+***environment { ... }***: This section is used to define environment variables that are applicable to all stages of the pipeline.
+
+***TF_CLI_ARGS = '-no-color'***: Sets an environment variable for Terraform. It tells Terraform to not colorize its output, which can be useful for logging and readability in CI/CD environments. feel free to change this value as you wish
+
+- Stages
+
+***stages { ... }***: This block defines the various stages of the pipeline. Each stage is a step in the pipeline process.
+
+- Stage: Checkout
+
+***stage('Checkout') { ... }***: This is the first stage, named 'Checkout'. It's typically used to check out source code from a version control system.
+
+***checkout scm***: Checks out source code from the Source Control Management (SCM) system configured for the job (In this case, Git).
+
+- Stage: Terraform Plan
+
+***stage('Terraform Plan') { ... }***: This stage is responsible for running a Terraform plan.
+
+***withCredentials([aws(...)]) { ... }***: This block securely injects AWS credentials into the environment.
+
+***sh 'terraform init'***: Initializes Terraform in the current directory.
+
+***sh 'terraform plan -out=tfplan'***: Runs Terraform plan and outputs the plan to a file named 'tfplan'.
+
+- Stage: Terraform Apply
+
+***stage('Terraform Apply') { ... }***: This stage applies the changes from Terraform plan to make infrastructure changes.
+
+***when { ... }***: This block sets conditions for executing this stage. ***expression { env.BRANCH_NAME == 'main' }***: This condition checks if the pipeline is running on the ***main*** branch.
+
+***expression { ... }***: Checks if the build was triggered by a user action.
+
+***input message: 'Do you want to apply changes?', ok: 'Yes'***: A manual intervention step asking for confirmation before proceeding. If ***yes*** is clicked, it runs the ***terraform init & apply*** otherwise, the pipeline is aborted.
+
+
+
+
 
 
 
