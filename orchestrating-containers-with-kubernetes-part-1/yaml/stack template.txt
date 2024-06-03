@@ -1,0 +1,396 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Amazon EKS Sample VPC - Private and Public subnets
+Parameters:
+  VpcBlock:
+    Type: String
+    Default: 192.168.0.0/16
+    Description: >-
+      The CIDR range for the VPC. This should be a valid private (RFC 1918) CIDR
+      range.
+  PublicSubnet01Block:
+    Type: String
+    Default: 192.168.0.0/18
+    Description: CidrBlock for public subnet 01 within the VPC
+  PublicSubnet02Block:
+    Type: String
+    Default: 192.168.64.0/18
+    Description: CidrBlock for public subnet 02 within the VPC
+  PrivateSubnet01Block:
+    Type: String
+    Default: 192.168.128.0/18
+    Description: CidrBlock for private subnet 01 within the VPC
+  PrivateSubnet02Block:
+    Type: String
+    Default: 192.168.192.0/18
+    Description: CidrBlock for private subnet 02 within the VPC
+Metadata:
+  'AWS::CloudFormation::Interface':
+    ParameterGroups:
+      - Label:
+          default: Worker Network Configuration
+        Parameters:
+          - VpcBlock
+          - PublicSubnet01Block
+          - PublicSubnet02Block
+          - PrivateSubnet01Block
+          - PrivateSubnet02Block
+  'AWS::CloudFormation::Designer':
+    11c7aa05-67e7-4a9e-b729-7b2ef81a7f5b:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 270
+        'y': 510
+      z: 1
+      embeds: []
+    1306dc68-7d9d-4fc5-ac8e-b720eb3ba397:
+      size:
+        width: 150
+        height: 150
+      position:
+        x: 60
+        'y': 510
+      z: 1
+      embeds: []
+    07d5a522-d091-4049-aa8c-b95d91ecac6b:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 390
+        'y': 510
+      z: 1
+      embeds: []
+    58423a4b-4b01-4b61-b1fc-9a07c1b792b2:
+      size:
+        width: 150
+        height: 150
+      position:
+        x: 480
+        'y': 300
+      z: 1
+      embeds: []
+    a16a7896-919e-4cc5-8bad-ee31076593c5:
+      size:
+        width: 150
+        height: 150
+      position:
+        x: 480
+        'y': 90
+      z: 1
+      embeds: []
+    c0cfe4ce-ba21-4911-9753-0d240d0ca62c:
+      size:
+        width: 150
+        height: 150
+      position:
+        x: 270
+        'y': 300
+      z: 1
+      embeds: []
+    edf6b91c-647f-4276-9c32-511703b68bc0:
+      size:
+        width: 150
+        height: 150
+      position:
+        x: 60
+        'y': 300
+      z: 1
+      embeds: []
+    415e5cf5-ddca-415d-bdf2-5ecb8e330629:
+      size:
+        width: 150
+        height: 150
+      position:
+        x: 270
+        'y': 90
+      z: 1
+      embeds: []
+    ec49ee74-6523-4923-acde-2c37b1d504a5:
+      size:
+        width: 150
+        height: 150
+      position:
+        x: 60
+        'y': 90
+      z: 1
+      embeds: []
+    274bea83-d0ff-4c08-ad96-0e661c31f26d:
+      source:
+        id: 11c7aa05-67e7-4a9e-b729-7b2ef81a7f5b
+      target:
+        id: 1306dc68-7d9d-4fc5-ac8e-b720eb3ba397
+    ff59302b-e2cc-4d0d-8396-1280d6392f25:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 510
+        'y': 510
+      z: 1
+      embeds: []
+      dependson:
+        - 274bea83-d0ff-4c08-ad96-0e661c31f26d
+    8604cbbe-3f0e-4827-8aa0-d5da26da91b7:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 630
+        'y': 510
+      z: 1
+      embeds: []
+      dependson:
+        - 274bea83-d0ff-4c08-ad96-0e661c31f26d
+    734e4cc2-4a59-4ead-baab-c907b99625d1:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 270
+        'y': 630
+      z: 1
+      embeds: []
+      dependson:
+        - 274bea83-d0ff-4c08-ad96-0e661c31f26d
+    52f72ce3-1731-4e71-912d-84b210ecd6e4:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 390
+        'y': 630
+      z: 1
+      embeds: []
+      dependson:
+        - 274bea83-d0ff-4c08-ad96-0e661c31f26d
+Resources:
+  VPC:
+    Type: 'AWS::EC2::VPC'
+    Properties:
+      CidrBlock: !Ref VpcBlock
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Tags:
+        - Key: Name
+          Value: !Sub '${AWS::StackName}-VPC'
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 1306dc68-7d9d-4fc5-ac8e-b720eb3ba397
+  InternetGateway:
+    Type: 'AWS::EC2::InternetGateway'
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 11c7aa05-67e7-4a9e-b729-7b2ef81a7f5b
+  VPCGatewayAttachment:
+    Type: 'AWS::EC2::VPCGatewayAttachment'
+    Properties:
+      InternetGatewayId: !Ref InternetGateway
+      VpcId: !Ref VPC
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 274bea83-d0ff-4c08-ad96-0e661c31f26d
+  PublicRouteTable:
+    Type: 'AWS::EC2::RouteTable'
+    Properties:
+      VpcId: !Ref VPC
+      Tags:
+        - Key: Name
+          Value: Public Subnets
+        - Key: Network
+          Value: Public
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: ec49ee74-6523-4923-acde-2c37b1d504a5
+  PrivateRouteTable01:
+    Type: 'AWS::EC2::RouteTable'
+    Properties:
+      VpcId: !Ref VPC
+      Tags:
+        - Key: Name
+          Value: Private Subnet AZ1
+        - Key: Network
+          Value: Private01
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 415e5cf5-ddca-415d-bdf2-5ecb8e330629
+  PublicRoute:
+    DependsOn: VPCGatewayAttachment
+    Type: 'AWS::EC2::Route'
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref InternetGateway
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 52f72ce3-1731-4e71-912d-84b210ecd6e4
+  PrivateRoute01:
+    DependsOn:
+      - VPCGatewayAttachment
+      - NatGateway01
+    Type: 'AWS::EC2::Route'
+    Properties:
+      RouteTableId: !Ref PrivateRouteTable01
+      DestinationCidrBlock: 0.0.0.0/0
+      NatGatewayId: !Ref NatGateway01
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 734e4cc2-4a59-4ead-baab-c907b99625d1
+  NatGateway01:
+    DependsOn:
+      - NatGatewayEIP1
+      - PublicSubnet01
+      - VPCGatewayAttachment
+    Type: 'AWS::EC2::NatGateway'
+    Properties:
+      AllocationId: !GetAtt NatGatewayEIP1.AllocationId
+      SubnetId: !Ref PublicSubnet01
+      Tags:
+        - Key: Name
+          Value: !Sub '${AWS::StackName}-NatGatewayAZ1'
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 8604cbbe-3f0e-4827-8aa0-d5da26da91b7
+  NatGatewayEIP1:
+    DependsOn:
+      - VPCGatewayAttachment
+    Type: 'AWS::EC2::EIP'
+    Properties:
+      Domain: vpc
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: ff59302b-e2cc-4d0d-8396-1280d6392f25
+  PublicSubnet01:
+    Type: 'AWS::EC2::Subnet'
+    Metadata:
+      Comment: Subnet 01
+      'AWS::CloudFormation::Designer':
+        id: edf6b91c-647f-4276-9c32-511703b68bc0
+    Properties:
+      MapPublicIpOnLaunch: true
+      AvailabilityZone:
+        'Fn::Select':
+          - '0'
+          - 'Fn::GetAZs':
+              Ref: 'AWS::Region'
+      CidrBlock:
+        Ref: PublicSubnet01Block
+      VpcId:
+        Ref: VPC
+      Tags:
+        - Key: Name
+          Value: !Sub '${AWS::StackName}-PublicSubnet01'
+        - Key: kubernetes.io/role/elb
+          Value: 1
+  PublicSubnet02:
+    Type: 'AWS::EC2::Subnet'
+    Metadata:
+      Comment: Subnet 02
+      'AWS::CloudFormation::Designer':
+        id: c0cfe4ce-ba21-4911-9753-0d240d0ca62c
+    Properties:
+      MapPublicIpOnLaunch: true
+      AvailabilityZone:
+        'Fn::Select':
+          - '1'
+          - 'Fn::GetAZs':
+              Ref: 'AWS::Region'
+      CidrBlock:
+        Ref: PublicSubnet02Block
+      VpcId:
+        Ref: VPC
+      Tags:
+        - Key: Name
+          Value: !Sub '${AWS::StackName}-PublicSubnet02'
+        - Key: kubernetes.io/role/elb
+          Value: 1
+  PrivateSubnet01:
+    Type: 'AWS::EC2::Subnet'
+    Metadata:
+      Comment: Subnet 03
+      'AWS::CloudFormation::Designer':
+        id: a16a7896-919e-4cc5-8bad-ee31076593c5
+    Properties:
+      AvailabilityZone:
+        'Fn::Select':
+          - '0'
+          - 'Fn::GetAZs':
+              Ref: 'AWS::Region'
+      CidrBlock:
+        Ref: PrivateSubnet01Block
+      VpcId:
+        Ref: VPC
+      Tags:
+        - Key: Name
+          Value: !Sub '${AWS::StackName}-PrivateSubnet01'
+        - Key: kubernetes.io/role/internal-elb
+          Value: 1
+  PrivateSubnet02:
+    Type: 'AWS::EC2::Subnet'
+    Metadata:
+      Comment: Private Subnet 02
+      'AWS::CloudFormation::Designer':
+        id: 58423a4b-4b01-4b61-b1fc-9a07c1b792b2
+    Properties:
+      AvailabilityZone:
+        'Fn::Select':
+          - '1'
+          - 'Fn::GetAZs':
+              Ref: 'AWS::Region'
+      CidrBlock:
+        Ref: PrivateSubnet02Block
+      VpcId:
+        Ref: VPC
+      Tags:
+        - Key: Name
+          Value: !Sub '${AWS::StackName}-PrivateSubnet02'
+        - Key: kubernetes.io/role/internal-elb
+          Value: 1
+  PublicSubnet01RouteTableAssociation:
+    Type: 'AWS::EC2::SubnetRouteTableAssociation'
+    Properties:
+      SubnetId: !Ref PublicSubnet01
+      RouteTableId: !Ref PublicRouteTable
+  PublicSubnet02RouteTableAssociation:
+    Type: 'AWS::EC2::SubnetRouteTableAssociation'
+    Properties:
+      SubnetId: !Ref PublicSubnet02
+      RouteTableId: !Ref PublicRouteTable
+  PrivateSubnet01RouteTableAssociation:
+    Type: 'AWS::EC2::SubnetRouteTableAssociation'
+    Properties:
+      SubnetId: !Ref PrivateSubnet01
+      RouteTableId: !Ref PrivateRouteTable01
+  PrivateSubnet02RouteTableAssociation:
+    Type: 'AWS::EC2::SubnetRouteTableAssociation'
+    Properties:
+      SubnetId: !Ref PrivateSubnet02
+      RouteTableId: !Ref PrivateRouteTable01
+  ControlPlaneSecurityGroup:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupDescription: Cluster communication with worker nodes
+      VpcId: !Ref VPC
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 07d5a522-d091-4049-aa8c-b95d91ecac6b
+Outputs:
+  SubnetIds:
+    Description: Subnets IDs in the VPC
+    Value: !Join 
+      - ','
+      - - !Ref PublicSubnet01
+        - !Ref PublicSubnet02
+        - !Ref PrivateSubnet01
+        - !Ref PrivateSubnet02
+  SecurityGroups:
+    Description: >-
+      Security group for the cluster control plane communication with worker
+      nodes
+    Value: !Join 
+      - ','
+      - - !Ref ControlPlaneSecurityGroup
+  VpcId:
+    Description: The VPC Id
+    Value: !Ref VPC
