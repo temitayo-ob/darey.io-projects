@@ -259,6 +259,9 @@ Within Kubernetes, there exist several elegant methods for data persistence, eac
 ## MANAGING VOLUMES DYNAMICALLY WITH PVS AND PVCS
 
 Ensure that you have csi-driver installed on your cluster
+
+![ebs](./images/aws%20ebs%20csi%20driver.png)
+
 Kubernetes provides API objects for storage management such that, the lower level details of volume provisioning, storage allocation, access management etc are all abstracted away from the user, and all you have to do is present manifest files that describes what you want to get done.
 
 Persistent Volumes (PVs) are storage plugins with an independent lifecycle, separate from the Pods that utilize them. This resilience ensures that even if a Pod terminates, the PV persists. A PV can be manually provisioned through an administrator's manifest file or dynamically generated if a predefined storage class is available.
